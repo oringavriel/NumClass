@@ -8,17 +8,11 @@ CLEANALL= advancedClassificationLoop.o  basicClassification.o advancedClassifica
 
 all: $(ALL)
 
-.PHONY: maindrec
-
 maindrec: $(MAINOBJ) 
 	$(CC) $(FLAGS) -o maindrec $(MAINOBJ) ./libclassrec.so
 
-.PHONY: mainloop
-
 maindloop: $(MAINOBJ) 
 	$(CC) $(FLAGS) -o maindloop $(MAINOBJ) ./libclassloops.so
-
-.PHONY: mains
 
 mains: $(MAINOBJ) libclassrec.a
 	$(CC) $(FLAGS) -o mains $(MAINOBJ) libclassrec.a 
