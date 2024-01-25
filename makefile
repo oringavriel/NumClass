@@ -2,29 +2,45 @@ CC= gcc
 AR= ar
 MAINOBJ= main.o
 FLAGS= -Wall -g 
-ALL= advancedClassificationLoop.o  basicClassification.o advancedClassificationRecursion.o main.o libclassloops.a libclassrec.a libclassrec.so libclassloops.so mains maindloop maindrec
+ALL= advancedClassificationLoop.o  basicClassification.o advancedClassificationRecursion.o main.o loops recursives recursived loopd  mains maindloop maindrec
+CLEANALL= advancedClassificationLoop.o  basicClassification.o advancedClassificationRecursion.o main.o libclassloops.a libclassrec.a libclassrec.so libclassloops.so  mains maindloop maindrec
+
 
 all: $(ALL)
+
+.PHONY: maindrec
 
 maindrec: $(MAINOBJ) 
 	$(CC) $(FLAGS) -o maindrec $(MAINOBJ) ./libclassrec.so
 
+.PHONY: mainloop
+
 maindloop: $(MAINOBJ) 
 	$(CC) $(FLAGS) -o maindloop $(MAINOBJ) ./libclassloops.so
+
+.PHONY: mains
 
 mains: $(MAINOBJ) libclassrec.a
 	$(CC) $(FLAGS) -o mains $(MAINOBJ) libclassrec.a 
 
-libclassloops.so: basicClassification.o advancedClassificationLoop.o
+.PHONY: loopd
+
+loopd: basicClassification.o advancedClassificationLoop.o
 	$(AR) -rcs libclassloops.so basicClassification.o advancedClassificationLoop.o
 
-libclassrec.so: basicClassification.o advancedClassificationRecursion.o
+.PHONY: recursived
+
+recursived: basicClassification.o advancedClassificationRecursion.o
 	$(AR) -rcs libclassrec.so basicClassification.o advancedClassificationRecursion.o
 
-libclassrec.a: basicClassification.o advancedClassificationRecursion.o
+.PHONY: recursives
+
+recursives: basicClassification.o advancedClassificationRecursion.o
 	$(AR) -rcs libclassrec.a basicClassification.o advancedClassificationRecursion.o
 
-libclassloops.a: basicClassification.o advancedClassificationLoop.o
+.PHONY: loops
+
+loops: basicClassification.o advancedClassificationLoop.o
 	$(AR) -rcs libclassloops.a basicClassification.o advancedClassificationLoop.o
 
 main.o: main.c NumClass.h
@@ -43,4 +59,4 @@ advancedClassificationRecursion.o : advancedClassificationRecursion.c NumClass.h
 .PHONY: clean
 
 clean: 
-	rm -f $(ALL)
+	rm -f $(CLEANALL)
