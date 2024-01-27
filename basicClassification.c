@@ -3,9 +3,9 @@
 
 
 int isPrime(int num){
-     if(num==2){
+     if(num==2 || num==1 ){
          return 1;}
-     if(num<2 || num%2==0){
+     if(num<1 || num%2==0){
          return 0;
      }
      int i;
