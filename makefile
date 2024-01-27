@@ -1,7 +1,7 @@
 CC= gcc
 AR= ar
 MAINOBJ= main.o
-FLAGS= -Wall -g 
+FLAGS= -Wall
 ALL= advancedClassificationLoop.o  basicClassification.o advancedClassificationRecursion.o main.o loops recursives recursived loopd  mains maindloop maindrec
 CLEANALL= advancedClassificationLoop.o  basicClassification.o advancedClassificationRecursion.o main.o libclassloops.a libclassrec.a libclassrec.so libclassloops.so  mains maindloop maindrec
 
@@ -38,16 +38,16 @@ loops: basicClassification.o advancedClassificationLoop.o
 	$(AR) -rcs libclassloops.a basicClassification.o advancedClassificationLoop.o
 
 main.o: main.c NumClass.h
-	$(CC) $(FLAGS) -c main.c -o main.o
+	$(CC) $(FLAGS) -fPIC -c main.c -o main.o
 
 advancedClassificationLoop.o : advancedClassificationLoop.c NumClass.h
-	$(CC) $(FLAGS) -c advancedClassificationLoop.c -o advancedClassificationLoop.o 
+	$(CC) $(FLAGS) -fPIC -c advancedClassificationLoop.c -o advancedClassificationLoop.o 
 
 basicClassification.o: basicClassification.c NumClass.h
-	$(CC) $(FLAGS) -c basicClassification.c -o basicClassification.o
+	$(CC) $(FLAGS) -fPIC -c basicClassification.c -o basicClassification.o
 	
 advancedClassificationRecursion.o : advancedClassificationRecursion.c NumClass.h
-	$(CC) $(FLAGS) -c advancedClassificationRecursion.c -o advancedClassificationRecursion.o 
+	$(CC) $(FLAGS) -fPIC -c advancedClassificationRecursion.c -o advancedClassificationRecursion.o 
 
 
 .PHONY: clean
