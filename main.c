@@ -5,9 +5,7 @@
 int main(){
 
     int num1, num2;
-    printf("enter the first number\n");
     scanf("%d",&num1);
-     printf("enter the second number\n");
     scanf("%d",&num2);
 
     int i;
@@ -17,8 +15,7 @@ int main(){
         int tnum ;
         tnum= isArmstrong(i);
         if(tnum==1){
-            printf(" ");
-            printf("%d", i);
+            printf(" %d", i);
         }
     }
      printf( "\n");
@@ -28,8 +25,7 @@ int main(){
         int tnum;
         tnum= isPalindrome(i);
         if(tnum==1){
-            printf(" ");
-            printf("%d", i);
+            printf(" %d", i);
         }
     }
     printf( "\n");
@@ -39,8 +35,7 @@ int main(){
         int tnum;
         tnum= isPrime(i);
         if(tnum==1){
-            printf(" ");
-            printf("%d", i);
+            printf(" %d", i);
         }
     }
     printf( "\n");
@@ -50,11 +45,10 @@ int main(){
         int tnum;
         tnum= isStrong(i);
         if(tnum==1){
-            printf(" ");
-            printf("%d", i);
+            printf(" %d", i);
         }
     }
     printf( "\n");
-    printf( "\n");
- 
+
+return 0;
 }
